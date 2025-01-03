@@ -16,7 +16,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      Admin Dashboard {user.name}
+      Admin Dashboard {user.name} yoo
     </div>
   )
 }
