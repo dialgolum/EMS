@@ -20,12 +20,13 @@ const authContext = ({children}) => {
                         headers: {
                             "Authorization" : `Bearer ${token}`
                         }
-                    })
+                    });
                     if(response.data.success) {
                         setUser(response.data.user)
                     }
                 } else {
                     setUser(null)
+                    setLoading(false)
                 }
             } catch(error) {
                 if(error.response && !error.response.data.error) {
