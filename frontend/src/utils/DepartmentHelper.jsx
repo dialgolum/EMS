@@ -1,24 +1,34 @@
+import { useNavigate } from "react-router-dom";
 
 export const columns = [
-    {
-        name: "S No",
-        selector: (row) => row.sno
-    },
-    {
-        name: "Department Name",
-        selector: (row) => row.dep_name
-    },
-    {
-        name: "Action",
-        selector: (row) => row.action
-    },
-]
+  {
+    name: "S No",
+    selector: (row) => row.sno,
+  },
+  {
+    name: "Department Name",
+    selector: (row) => row.dep_name,
+  },
+  {
+    name: "Action",
+    selector: (row) => row.action,
+  },
+];
 
-export const DepartmentButtons = () => {
-    return (
-        <div className="flex space-x-3 ">
-            <button className="px-3 py-1 bg-teal-600 text-white rounded">Update</button>
-            <button className="px-3 py-1 bg-red-600 text-white rounded">Remove</button>
-        </div>
-    )
-}
+export const DepartmentButtons = ({ _id }) => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex space-x-3 ">
+      <button
+        className="px-3 py-1 bg-teal-600 text-white rounded"
+        onClick={() => navigate(`/admin-dashboard/department/${_id}`)}
+      >
+        Update
+      </button>
+      <button className="px-3 py-1 bg-red-600 text-white rounded">
+        Remove
+      </button>
+    </div>
+  );
+};
